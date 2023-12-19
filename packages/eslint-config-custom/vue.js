@@ -3,12 +3,8 @@ const { resolve } = require("node:path");
 const project = resolve(process.cwd(), "tsconfig.json");
 
 /*
- * This is a custom ESLint configuration for use with
- * internal that utilize VueJS.
- *
- * This config extends the Vercel Engineering Style Guide.
- * For more information, see https://github.com/vercel/style-guide
- *
+ * 这是一个自定义 ESLint 配置
+ * (扩展了 Vercel 工程风格指南,内部使用 VueJS)
  */
 
 module.exports = {
@@ -20,7 +16,12 @@ module.exports = {
     ecmaVersion: "latest",
   },
   settings: {
+    // eslint-plugin-import 插件的配置，用于帮助 ESLint 解析模块的导入路径
     "import/resolver": {
+      alias: {
+        map: [['@', './src/']],
+        extensions: ['.js','.ts', '.vue'],
+      },
       typescript: {
         project,
       },
@@ -31,6 +32,7 @@ module.exports = {
   rules: {
     "import/no-default-export": "off",
     "vue/multi-word-component-names": "off",
+    "no-console": "off"
     // add specific rules configurations here
   },
 };

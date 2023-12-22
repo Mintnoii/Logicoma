@@ -1,4 +1,4 @@
-import '@/styles/tailwind.css'
+import './src/styles/tailwind.css'
 import Card from "./src/card.vue";
 import Gradient from "./src/gradient.vue";
 import Page from "./src/page.vue";
